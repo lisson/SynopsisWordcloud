@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="jquery-3.6.3.slim.min.js"></script>
+        <script src="jqcloud.min.js"></script>
+        <link rel="stylesheet" href="jqcloud.min.css">
+    </head>
+    <body>
+        <div id="keywords">
+
+        </div>
+        <script>
+            var words = [
+                {% for key, value in words.items() %}
+                    {text: "{{key}}", weight: {{value}}}{{ "," if not loop.last }}
+                {% endfor %}
+            ];
+
+            $('#keywords').jQCloud(words, {
+                width: 1024,
+                height: 768
+                });
+        </script>
+    </body>
+</html>
